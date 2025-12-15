@@ -1,5 +1,6 @@
 import React from 'react';
-import { LuMove } from "react-icons/lu";
+import { Plus } from "lucide-react"
+
 import { CgSoftwareDownload } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
 import { motion } from "framer-motion";
@@ -13,7 +14,7 @@ const Card = ({ data, raframe, onDelete }) => {
         whileDrag={{ scale: 1.2 }}
         className="relative w-50 h-60 rounded-[25px] bg-zinc-900/50 text-white px-6 py-7 overflow-hidden"
       >
-        <LuMove />
+        <Plus />
 
         <p className="mt-7 text-sm leading-4 font-semibold">{data.desc}</p>
 
