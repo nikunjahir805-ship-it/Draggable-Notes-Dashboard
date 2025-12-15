@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+*{
+    font-family: Gilroy;
+}
+
+::selection {
+    color: #0f6cb8;
+}
