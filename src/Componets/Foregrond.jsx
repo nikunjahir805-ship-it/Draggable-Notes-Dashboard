@@ -11,17 +11,24 @@ const Foregrond = () => {
   const addNote = () => {
     if (!input.trim()) return;
 
-    setNotes(prev => [
-      ...prev,
-      {
-        id: Date.now(),
-        desc: input,
-        filesize: "1.0MB",
-        close: true,
-        tag: { isOpen: true, tagTitle: "Download Now", tagColor: "green" },
-      },
-    ]);
+    // Generates a random number between 0.1 and 9.9
+    const dynamicSize = (Math.random() * 10).toFixed(1);
 
+    const unit = Math.random() > 0.5 ? "MB" : "KB";
+
+    const newNote = {
+      id: Date.now(),
+      desc: input,
+      filesize: `${dynamicSize}${unit}`,
+      close: true,
+      tag: { 
+        isOpen: true, 
+        tagTitle: "Download Now", 
+        tagColor: Math.random() > 0.5 ? "green" : "blue" 
+      },
+    };
+
+    setNotes(prev => [...prev, newNote]);
     setInput("");
   };
 
@@ -40,11 +47,11 @@ const Foregrond = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Write your note..."
-          className="w-full h-24 p-3 rounded-lg text-white bg-zinc-800 placeholder-white/70 outline-none resize-none mb-3"
+          className="w-full h-24 p-3 rounded-lg text-white bg-zinc-800 placeholder-white/50 outline-none resize-none mb-3 border border-zinc-700 focus:border-blue-500 transition-colors"
         />
         <button
           onClick={addNote}
-          className="w-full py-2 bg-green-600 text-white rounded-lg"
+          className="w-full py-2 bg-green-600 hover:bg-green-500   focus:border-blue-500 font-semibold transition-colors text-white rounded-lg"
         >
           Add Note
         </button>
@@ -67,5 +74,4 @@ const Foregrond = () => {
     </>
   );
 };
-
-export default Foregrond;
+  export default Foregrond;

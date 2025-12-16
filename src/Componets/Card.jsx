@@ -1,5 +1,5 @@
 import React from "react";
-import { Plus, Download, X } from "lucide-react";
+import { NotebookPen, Download, X } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Card = ({ data, raframe, onDelete }) => {
@@ -11,7 +11,7 @@ const Card = ({ data, raframe, onDelete }) => {
         whileDrag={{ scale: 1.2 }}
         className="relative w-50 h-60 rounded-[25px] bg-zinc-900/50 text-white px-6 py-7 overflow-hidden"
       >
-        <Plus size={18} />
+        <NotebookPen />
 
         <p className="mt-7 text-sm leading-4 font-semibold">
           {data.desc}
